@@ -1,0 +1,28 @@
+// .gradient-one {
+//   background-color: rgba(10, 143, 170, 0.25);
+//   filter: blur(100px);
+// }
+
+.gradient-one {
+  background: radial-gradient(
+    circle at center,
+    rgba(67, 206, 237, 0.3) 5%,
+    rgba(76, 22, 213, 0) 95%
+  ) !important;
+}
+
+.gradient-two {
+    background: radial-gradient(
+      circle at center,
+      rgba(203, 67, 237, 0.3) 5%,
+      rgba(76, 22, 213, 0) 95%
+    ) !important;
+  }
+
+  .gradient-three {
+    background: radial-gradient(
+      circle at center,
+      rgba(232, 236, 118, 0.3) 5%,
+      rgba(76, 22, 213, 0) 95%
+    ) !important;
+  }

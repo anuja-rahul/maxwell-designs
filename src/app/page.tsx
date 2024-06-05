@@ -1,3 +1,4 @@
+import { GradientOne, GradientThree, GradientTwo } from "@/components/layout/Gradients";
 import {
   Shape01,
   Shape02,
@@ -11,7 +12,8 @@ import {
 
 export default function Home() {
   return (
-    <main>
+    <main className="min-h-[200vh]">
+      <GradientOne />
       <Shape01 className="w-[70px]" />
       <Shape02 className="w-[150px]" />
       <Shape03 className="w-[200px]" />
@@ -20,6 +22,8 @@ export default function Home() {
       <Shape06 />
       <Shape07 />
       <Shape08 />
+      <GradientTwo />
+      <GradientThree />
     </main>
   );
 }

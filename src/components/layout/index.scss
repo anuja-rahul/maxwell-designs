@@ -12,17 +12,17 @@
 }
 
 .gradient-two {
-    background: radial-gradient(
-      circle at center,
-      rgba(203, 67, 237, 0.3) 5%,
-      rgba(76, 22, 213, 0) 95%
-    ) !important;
-  }
+  background: radial-gradient(
+    circle at center,
+    rgba(203, 67, 237, 0.3) 5%,
+    rgba(76, 22, 213, 0) 95%
+  ) !important;
+}
 
-  .gradient-three {
-    background: radial-gradient(
-      circle at center,
-      rgba(232, 236, 118, 0.3) 5%,
-      rgba(76, 22, 213, 0) 95%
-    ) !important;
-  }
+.gradient-three {
+  background: radial-gradient(
+    circle at center,
+    rgba(232, 236, 118, 0.3) 5%,
+    rgba(76, 22, 213, 0) 95%
+  ) !important;
+}

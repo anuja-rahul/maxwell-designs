@@ -8,6 +8,11 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Maxwell Designs",
   description: "Designs by Maxwell",
+  icons: {
+    icon: "./favicon.png", //public path
+  },
+  authors: [{ name: "Anuja Rahul" }],
+  creator: "Anuja Rahul",
 };
 
 export default function RootLayout({

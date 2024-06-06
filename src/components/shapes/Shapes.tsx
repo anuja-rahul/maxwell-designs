@@ -27,7 +27,7 @@ interface shapeProps {
   extras?: string;
 }
 
-export const Shape01 = ({ className}: shapeProps) => {
+export const Shape01 = ({ className }: shapeProps) => {
   return (
     <Image
       priority
@@ -115,3 +115,29 @@ export const Shape08 = ({ className }: shapeProps) => {
     />
   );
 };
+
+export const Shape09 = ({ className }: shapeProps) => {
+  return (
+    <Image
+      priority
+      src={Shape_09}
+      alt="shape_09"
+      className={clsx("", className)}
+      width={100}
+    />
+  );
+};
+
+export const Shape10 = ({ className }: shapeProps) => {
+  return (
+    <Image
+      priority
+      src={Shape_10}
+      alt="shape_10"
+      className={clsx("", className)}
+      width={100}
+    />
+  );
+};
+
+

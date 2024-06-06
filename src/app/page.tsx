@@ -1,3 +1,5 @@
+import "./index.scss";
+
 import Hero from "@/components/hero/Hero";
 import {
   GradientOne,
@@ -27,7 +29,7 @@ export default function Home() {
       <Shape06 />
       <Shape07 />
       <Shape08 /> */}
-      <Hero />
+      <Hero className="z-[990]" />
       <GradientTwo />
       <GradientThree />
     </main>

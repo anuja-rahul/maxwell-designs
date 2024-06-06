@@ -18,6 +18,11 @@ import Shape_17 from "./../../assets/shapes/shape-17.svg";
 import Shape_18 from "./../../assets/shapes/shape-18.svg";
 import Shape_19 from "./../../assets/shapes/shape-19.svg";
 import Shape_20 from "./../../assets/shapes/shape-20.svg";
+import Shape_48 from "./../../assets/shapes/shape-48.svg";
+import Shape_52 from "./../../assets/shapes/shape-52.svg";
+import Shape_68 from "./../../assets/shapes/shape-68.svg";
+import Shape_82 from "./../../assets/shapes/shape-82.svg";
+import Shape_109 from "./../../assets/shapes/shape-109.svg";
 
 import Image from "next/image";
 import clsx from "clsx";
@@ -140,4 +145,62 @@ export const Shape10 = ({ className }: shapeProps) => {
   );
 };
 
+export const Shape48 = ({ className }: shapeProps) => {
+  return (
+    <Image
+      priority
+      src={Shape_48}
+      alt="shape_48"
+      className={clsx("", className)}
+      width={100}
+    />
+  );
+};
 
+export const Shape52 = ({ className }: shapeProps) => {
+  return (
+    <Image
+      priority
+      src={Shape_52}
+      alt="shape_52"
+      className={clsx("", className)}
+      width={100}
+    />
+  );
+};
+
+export const Shape68 = ({ className }: shapeProps) => {
+  return (
+    <Image
+      priority
+      src={Shape_68}
+      alt="shape_68"
+      className={clsx("", className)}
+      width={100}
+    />
+  );
+};
+
+export const Shape82 = ({ className }: shapeProps) => {
+  return (
+    <Image
+      priority
+      src={Shape_82}
+      alt="shape_82"
+      className={clsx("", className)}
+      width={100}
+    />
+  );
+};
+
+export const Shape109 = ({ className }: shapeProps) => {
+  return (
+    <Image
+      priority
+      src={Shape_109}
+      alt="shape_109"
+      className={clsx("", className)}
+      width={100}
+    />
+  );
+};

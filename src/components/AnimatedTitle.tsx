@@ -73,7 +73,8 @@ export default function AnimatedTile({
   useGSAP(() => {
     const tl = gsap.timeline();
     const shapeTLThree = gsap.timeline();
-    const shapeTLTwo = gsap.timeline({ repeat: -1, delay: 1.5 });
+    const shapeTLTwo = gsap.timeline({ repeat: -1, delay: 0.7 });
+    const tlI = gsap.timeline({ repeat: -1 });
 
     gsap.fromTo(
       ".shape__2",
@@ -82,63 +83,112 @@ export default function AnimatedTile({
         x: -300,
         rotateZ: 360,
       },
-      { opacity: 1, rotateZ: 0, x: 0, duration: 1 },
+      { opacity: 1, rotateZ: 0, x: 0, duration: 0.6 },
     );
+
+    gsap.to(".shape__2", {
+      delay: 0.6,
+      y: -100,
+      duration: 0.5,
+      ease: "power2.inOut",
+    });
 
     shapeTLTwo.to(".shape__2", {
       rotateZ: "90deg",
       duration: 0.3,
       delay: 1.2,
+      ease: "power2.inOut",
     });
     shapeTLTwo.to(".shape__2", {
       rotateZ: "180deg",
       duration: 0.3,
       delay: 1.2,
+      ease: "power2.inOut",
     });
-    // shapeTLTwo.
-    // to(".shape__2", {
-    //   rotateZ: "135deg",
-    //   duration: 0.4,
-    //   delay: 0.4,
-    // });
-    // shapeTLTwo.
-    // to(".shape__2", {
-    //   rotateZ: "180deg",
-    //   duration: 0.4,
-    //   delay: 0.4,
-    // });
 
     shapeTLThree.fromTo(
       ".shape__3",
-      { opacity: 0, scale: 0.8, rotateZ: "-90deg" },
-      { opacity: 1, scale: 1, duration: 1.1, delay: 0, rotateZ: "450deg" },
+      {
+        x: -150,
+        rotateZ: "-180deg",
+        opacity: 1,
+      },
+      {
+        x: 0,
+        rotateZ: "0deg",
+        duration: 0.7,
+        ease: "power2.inOut",
+      },
     );
-    shapeTLThree.to(".shape__3", { opacity: 0, duration: 0.5, y: 100 });
+
+    shapeTLThree.fromTo(
+      ".shape__3",
+      { opacity: 1, scale: 1 },
+      {
+        opacity: 1,
+        scale: 1,
+        duration: 0.7,
+        delay: 0,
+        rotateZ: "180deg",
+        ease: "power2.inOut",
+      },
+    );
+    shapeTLThree.to(".shape__3", {
+      opacity: 0,
+      duration: 0.5,
+      y: 100,
+      ease: "power2.inOut",
+    });
 
     tl.fromTo(
       ".title-letter__0",
       { scale: 1, opacity: 0, rotateY: "-90deg" },
-      { scale: 1, opacity: 1, duration: 0.6, delay: 0, rotateY: "0deg" },
+      {
+        scale: 1,
+        opacity: 1,
+        duration: 0.8,
+        delay: 0,
+        rotateY: "0deg",
+        ease: "power2.inOut",
+      },
     ),
       tl.fromTo(
         ".title-letter__1",
         { opacity: 0, y: 100 },
-        { opacity: 1, duration: 0.6, delay: 0, y: 0 },
+        { opacity: 1, duration: 0.8, delay: 0, y: 0, ease: "power2.inOut" },
       ),
       tl.fromTo(
         ".title-letter__2",
         { opacity: 0, y: -100 },
-        { opacity: 1, delay: 0, duration: 0.6, y: 0 },
-      ),
-      tl.fromTo(
-        ".title-letter__3",
-        { opacity: 0, x: -100 },
-        { opacity: 1, delay: 0, duration: 0.6, x: 0 },
+        { opacity: 1, delay: 0, duration: 0.8, y: 0, ease: "power2.inOut" },
       ),
       tl.fromTo(
         ".title-letter__5",
         { opacity: 0, y: 100 },
-        { opacity: 1, delay: 0, duration: 0.6, y: 0 },
+        { opacity: 1, delay: 0, duration: 0.6, y: 0, ease: "power2.inOut" },
+      ),
+      gsap.fromTo(
+        ".title-letter__3",
+        { opacity: 0, x: -100, rotateX: "-180deg" },
+        {
+          opacity: 1,
+          delay: 2.4,
+          duration: 0.6,
+          x: 0,
+          rotateX: "-360deg",
+          ease: "power2.inOut",
+        },
+      ),
+      tlI.fromTo(
+        ".title-letter__3",
+        { rotateX: "-360deg" },
+        {
+          delay: 5,
+          opacity: 1,
+          duration: 1,
+          rotateX: "0deg",
+          ease: "power2.inOut",
+        },
       );
   }, []);
 
@@ -159,7 +209,7 @@ export default function AnimatedTile({
             )}
 
             {idx + start == 1 ? (
-              <Shape82 className={`shape__2 absolute -top-8 bg-transparent`} />
+              <Shape82 className={`shape__2 absolute top-16 bg-transparent`} />
             ) : (
               ""
             )}
@@ -167,7 +217,7 @@ export default function AnimatedTile({
 
           <h1
             key={idx}
-            className={`title-letter__${idx + start} z-[6] bg-transparent text-info/90`}
+            className={`title-letter__${idx + start} opacity-1 z-[6] bg-transparent text-info/90`}
           >
             <motion.span
               className="relative overflow-hidden bg-transparent"

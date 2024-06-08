@@ -24,6 +24,9 @@ import Shape_68 from "./../../assets/shapes/shape-68.svg";
 import Shape_82 from "./../../assets/shapes/shape-82.svg";
 import Shape_109 from "./../../assets/shapes/shape-109.svg";
 
+import Custom_01 from "./../../assets/shapes/custom-1.svg";
+
+
 import Image from "next/image";
 import clsx from "clsx";
 
@@ -204,3 +207,16 @@ export const Shape109 = ({ className }: shapeProps) => {
     />
   );
 };
+
+export const Custom01 = ({ className }: shapeProps) => {
+  return (
+    <Image
+      priority
+      src={Custom_01}
+      alt="shape_109"
+      className={clsx("", className)}
+      width={100}
+    />
+  );
+};
+

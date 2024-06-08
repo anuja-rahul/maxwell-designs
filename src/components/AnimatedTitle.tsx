@@ -17,6 +17,7 @@ import {
   Shape68,
   Shape48,
   Shape52,
+  Custom01
 } from "./shapes/Shapes";
 import { motion } from "framer-motion";
 import { useGSAP } from "@gsap/react";
@@ -44,7 +45,8 @@ const shapeArray = [
   <Shape109 key={109} className="w-[60px] bg-transparent" />,
   <Shape68 key={68} className="w-[70px] bg-transparent" />,
   <Shape48 key={48} className="w-[80px] bg-transparent" />,
-  <Shape52 key={52} className="w-[80px] bg-transparent" />,
+  <Shape52 key={52} className="w-[90px] bg-transparent" />,
+  <Custom01 key={130} className="w-[90px] bg-transparent" />,
 ];
 
 // export function GetRandomItemsFromArray(arr: number[], count: number) {
@@ -73,6 +75,7 @@ export default function AnimatedTile({
   useGSAP(() => {
     const tl = gsap.timeline();
     const shapeTLThree = gsap.timeline();
+    const secondRow = gsap.timeline();
     const shapeTLTwo = gsap.timeline({ repeat: -1, delay: 0.7 });
     const tlI = gsap.timeline({ repeat: -1 });
 
@@ -96,13 +99,13 @@ export default function AnimatedTile({
     shapeTLTwo.to(".shape__2", {
       rotateZ: "90deg",
       duration: 0.3,
-      delay: 1.2,
+      delay: 0.8,
       ease: "power2.inOut",
     });
     shapeTLTwo.to(".shape__2", {
       rotateZ: "180deg",
       duration: 0.3,
-      delay: 1.2,
+      delay: 1,
       ease: "power2.inOut",
     });
 
@@ -116,27 +119,28 @@ export default function AnimatedTile({
       {
         x: 0,
         rotateZ: "0deg",
-        duration: 0.7,
+        duration: 1.2,
         ease: "power2.inOut",
       },
     );
 
-    shapeTLThree.fromTo(
-      ".shape__3",
-      { opacity: 1, scale: 1 },
-      {
-        opacity: 1,
-        scale: 1,
-        duration: 0.7,
-        delay: 0,
-        rotateZ: "180deg",
-        ease: "power2.inOut",
-      },
-    );
+    // shapeTLThree.fromTo(
+    //   ".shape__3",
+    //   { opacity: 1, scale: 1 },
+    //   {
+    //     opacity: 1,
+    //     scale: 1,
+    //     duration: 0.7,
+    //     delay: 0,
+    //     rotateZ: "180deg",
+    //     ease: "power2.inOut",
+    //   },
+    // );
     shapeTLThree.to(".shape__3", {
       opacity: 0,
-      duration: 0.5,
+      duration: 0.8,
       y: 100,
+      rotateZ: "180deg",
       ease: "power2.inOut",
     });
 
@@ -146,7 +150,7 @@ export default function AnimatedTile({
       {
         scale: 1,
         opacity: 1,
-        duration: 0.8,
+        duration: 0.6,
         delay: 0,
         rotateY: "0deg",
         ease: "power2.inOut",
@@ -164,18 +168,30 @@ export default function AnimatedTile({
       ),
       tl.fromTo(
         ".title-letter__5",
-        { opacity: 0, y: 100 },
-        { opacity: 1, delay: 0, duration: 0.6, y: 0, ease: "power2.inOut" },
+        { opacity: 1, x: -170 },
+        { opacity: 1, delay: 0, duration: 0.6, x: 0, ease: "power2.inOut" },
       ),
       gsap.fromTo(
         ".title-letter__3",
-        { opacity: 0, x: -100, rotateX: "-180deg" },
+        { opacity: 0, x: -100 },
         {
           opacity: 1,
           delay: 2.4,
-          duration: 0.6,
+          duration: 0.8,
           x: 0,
-          rotateX: "-360deg",
+
+          ease: "power2.inOut",
+        },
+      ),
+      gsap.fromTo(
+        ".title-letter__4",
+        { opacity: 0, y: -150 },
+        {
+          opacity: 1,
+          delay: 2.5,
+          duration: 0.8,
+          y: 0,
+
           ease: "power2.inOut",
         },
       ),
@@ -189,6 +205,35 @@ export default function AnimatedTile({
           rotateX: "0deg",
           ease: "power2.inOut",
         },
+      ),
+      secondRow.fromTo(
+        ".title-letter__7",
+        { opacity: 0, scale: 0, rotateZ: "-180deg" },
+        {
+          opacity: 1,
+          scale: 1,
+          delay: 1,
+          duration: 0.8,
+          rotateZ: "0deg",
+          ease: "power2.inOut",
+        },
+      ),
+      secondRow.fromTo(
+        ".title-letter__8",
+        { opacity: 0, scale: 0, rotateZ: "-180deg" },
+        {
+          opacity: 1,
+          scale: 1,
+          
+          duration: 0.8,
+          rotateZ: "0deg",
+          ease: "power2.inOut",
+        },
+      ),
+      gsap.fromTo(
+        ".shape__7",
+        { opacity: 1, rotateZ: "-180deg" },
+        { opacity: 0, scale: 0, delay: 0.4, duration: 0.8, rotateZ: "180deg" },
       );
   }, []);
 
@@ -209,15 +254,18 @@ export default function AnimatedTile({
             )}
 
             {idx + start == 1 ? (
-              <Shape82 className={`shape__2 absolute top-16 bg-transparent`} />
+              <Custom01 className={`shape__2 absolute top-16 bg-transparent`} />
             ) : (
               ""
+            )}
+            {idx + start == 7 && (
+              <Shape52 className={`shape__7 absolute top-16 bg-transparent`} />
             )}
           </div>
 
           <h1
             key={idx}
-            className={`title-letter__${idx + start} opacity-1 z-[6] bg-transparent text-info/90`}
+            className={`title-letter__${idx + start} opacity-1 z-[6] bg-transparent text-info/90 opacity-0`}
           >
             <motion.span
               className="relative overflow-hidden bg-transparent"
